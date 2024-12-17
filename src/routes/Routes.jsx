@@ -5,14 +5,14 @@ import Home from "../pages/Home/Home";
 const router = createBrowserRouter([
     {
         path: '/',
-        element: <Root></Root>, 
+        element: <Root></Root>,
         children: [
             {
                 path: '/',
                 element: <Home></Home>
-            }
+            },
         ]
-    }    
+    }
 ]);
 
 export default router;
