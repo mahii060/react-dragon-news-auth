@@ -6,14 +6,17 @@ import { auth } from "../firebase/firebase.config";
 
 const FirebaseProvider = ({ children }) => {
     const [user, setUser] = useState(null)
+    const [loading, setLoading] = useState(true)
 
     // Create new user
     const createUser = (email, password) => {
+        setLoading(true)
         return createUserWithEmailAndPassword(auth, email, password)
     }
 
     // Existent user login
     const userLogin = (email, password) => {
+        setLoading(true)
         return signInWithEmailAndPassword(auth, email, password)
     }
 
@@ -22,6 +25,7 @@ const FirebaseProvider = ({ children }) => {
         const unSubscribe = onAuthStateChanged(auth, currentUser => {
             console.log('User in the auth state changed', currentUser);
             setUser(currentUser)
+            setLoading(false)
         });
         return () => unSubscribe();
     }, [])
@@ -33,6 +37,7 @@ const FirebaseProvider = ({ children }) => {
 
     const authInfo = {
         user,
+        loading,
         userLogin,
         setUser,
         createUser,
