@@ -5,7 +5,6 @@ import useAuth from "../../utils/useAuth";
 const Login = () => {
     const { userLogin } = useAuth();
     const location = useLocation()
-    console.log(location);
     const navigate = useNavigate()
 
     const handleLogin = (e) => {
@@ -22,8 +21,6 @@ const Login = () => {
             }).catch(error => {
                 console.error(error)
             })
-
-        console.log(email, password);
     }
     return (
         <div>
