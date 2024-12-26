@@ -5,6 +5,7 @@ import Login from "../pages/Login/Login";
 import Register from "../pages/Register/Register";
 import News from "../pages/News";
 import PrivateRoute from "../components/PrivateRoute";
+import Print from "../pages/Print/Print";
 
 const router = createBrowserRouter([
     {
@@ -23,6 +24,10 @@ const router = createBrowserRouter([
             {
                 path: '/login',
                 element: <Login></Login>
+            },
+            {
+                path: '/print',
+                element: <Print />
             },
             {
                 path: '/register',
